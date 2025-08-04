@@ -2,16 +2,15 @@ name: Cypress BDD Tests
 
 on:
   schedule:
-    - cron: "0 2 * * *" # daily at 2AM UTC
-  workflow_dispatch:
+    - cron: "0 2 * * *"   # every day at 2AM UTC
+  workflow_dispatch:       # manual run option
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        env: [dev, qa]
-
+        env: [dev, qa]  # will run for dev and qa
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -24,9 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress tests with Allure
-        run: |
-          npx cross-env ENV=${{ matrix.env }} CYPRESS_ALLURE=true npx cypress run
+      - name: Run Cypress tests
+        run: npx cross-env ENV=${{ matrix.env }} CYPRESS_ALLURE=true npx cypress run
         env:
           RUDDER_EMAIL: ${{ secrets.RUDDER_EMAIL }}
           RUDDER_PASSWORD: ${{ secrets.RUDDER_PASSWORD }}
@@ -39,7 +37,7 @@ jobs:
         run: npm run allure:generate
 
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report-${{ matrix.env }}
           path: allure-report
