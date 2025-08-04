@@ -1,0 +1,44 @@
+{
+  "name": "cybdd",
+  "version": "1.0.0",
+  "description": "Boilerplate for implementing BDD (cucumber) in cypress",
+  "main": "cypress.config.js",
+  "scripts": {
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open  allure-report",
+
+    "cypress:open:dev": "cross-env ENV=dev CYPRESS_ALLURE=true npx cypress open",
+    "cypress:run:dev": "cross-env ENV=dev CYPRESS_ALLURE=true npx cypress run",
+    "cypress:run:qa": "cross-env ENV=qa CYPRESS_ALLURE=true npx cypress run",
+    "cypress:run:prod": "cross-env ENV=production CYPRESS_ALLURE=true npx cypress run",
+    "cucumber:report": "node generate-cucumber-report.js",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "test:dev": "npm run cypress:run:dev && npm run allure:generate && npm run allure:open",
+    "test:qa": "npm run cypress:run:qa && npm run allure:generate && npm run allure:open",
+    "test:prod": "npm run cypress:run:prod && npm run allure:generate && npm run allure:open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.34.1",
+    "cross-env": "^10.0.0",
+    "cypress": "^12.10.0",
+    "dotenv": "^17.2.1",
+    "mocha-allure-reporter": "^1.4.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "multiple-cucumber-html-reporter": "^3.9.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/step_definitions/",
+    "nonGlobalStepDefinitions": false
+  },
+  "dependencies": {
+    "cucumber-html-reporter": "^7.2.0"
+  }
+}

@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1754266212054' stop='1754266253434'>
+    <name>RudderStack Event Flow Automation</name>
+    <title>RudderStack Event Flow Automation</title>
+    <test-cases>
+        <test-case start='1754266212100' status='passed' stop='1754266253433'>
+            <name>Send an event to HTTP source and verify delivery in Webhook</name>
+            <title>Send an event to HTTP source and verify delivery in Webhook</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,0 +1,78 @@
+[
+  {
+    "uri": "features/rudderstack.feature",
+    "id": "rudderstack-event-flow-automation",
+    "keyword": "Feature",
+    "name": "RudderStack Event Flow Automation",
+    "description": "",
+    "line": 2,
+    "elements": [
+      {
+        "id": "rudderstack-event-flow-automation;send-an-event-to-http-source-and-verify-delivery-in-webhook",
+        "keyword": "Scenario",
+        "name": "Send an event to HTTP source and verify delivery in Webhook",
+        "description": "",
+        "line": 7,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "the user is logged in to the RudderStack dashboard",
+            "result": {
+              "status": "passed",
+              "duration": 4500
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user navigates to the \"Connections\" page",
+            "result": {
+              "status": "passed",
+              "duration": 1200
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user extracts and stores the Data Plane URL from the top-right corner",
+            "result": {
+              "status": "passed",
+              "duration": 800
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "the user copies the writeKey from the created HTTP source",
+            "result": {
+              "status": "passed",
+              "duration": 900
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user sends a test event using the stored writeKey and Data Plane URL via API",
+            "result": {
+              "status": "passed",
+              "duration": 2000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "the user navigates to the Webhook destination page",
+            "result": {
+              "status": "passed",
+              "duration": 1500
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the user verifies the count of delivered and failed events under the Events tab",
+            "result": {
+              "status": "passed",
+              "duration": 1000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
