@@ -1,5 +1,7 @@
 # RudderStack Event Flow Automation (Cypress + Cucumber BDD)
 
+[![Cypress Tests](https://github.com/Meenaester/RudderStack-Cypress-BDD/actions/workflows/cypress.yml/badge.svg)](https://github.com/Meenaester/RudderStack-Cypress-BDD/actions/workflows/cypress.yml)
+
 This repository provides an automated solution to validate **end-to-end event delivery** in RudderStack.  
 It uses **Cypress v12 with Cucumber BDD** to combine UI and API flows, ensuring that events created via HTTP Sources are successfully delivered to Webhook Destinations.  
 The framework also generates **professional HTML reports** and runs on **GitHub Actions (daily)** to simulate production‑like CI/CD.
